@@ -29,30 +29,30 @@
 
                 <div class="col-2">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input value="tv" name="produk" id="tv" type="radio" class="custom-control-input" required>
+                        <input value="TV" name="produk" id="tv" type="radio" class="custom-control-input" required>
                         <label for="tv" class="custom-control-label">Tv</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input value="kulkas" name="produk" id="kulkas" type="radio" class="custom-control-input" required>
+                        <input value="Kulkas" name="produk" id="kulkas" type="radio" class="custom-control-input" required>
                         <label for="kulkas" class="custom-control-label">Kulkas</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input value=mesincuci" name="produk" id="mesincuci" type="radio" class="custom-control-input" required>
+                        <input value="Mesin Cuci" name="produk" id="mesincuci" type="radio" class="custom-control-input" required>
                         <label for="mesincuci" class="custom-control-label">Mesin Cuci</label>
                     </div>
                 </div>
 
                 <div class="col-6">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input value="lemari" name="produk" id="lemari" type="radio" class="custom-control-input" required>
+                        <input value="Lemari" name="produk" id="lemari" type="radio" class="custom-control-input" required>
                         <label for="lemari" class="custom-control-label">Lemari</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input value="jamtangan" name="produk" id="jamtangan" type="radio" class="custom-control-input" required>
+                        <input value="Jam Tangan" name="produk" id="jamtangan" type="radio" class="custom-control-input" required>
                         <label for="jamtangan" class="custom-control-label">Jam Tangan</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input value="tas" name="produk" id="tas" type="radio" class="custom-control-input" required>
+                        <input value="Tas" name="produk" id="tas" type="radio" class="custom-control-input" required>
                         <label for="tas" class="custom-control-label">Tas</label>
                     </div>
                 </div>

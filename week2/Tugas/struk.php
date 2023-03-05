@@ -5,22 +5,22 @@ $jumlah = $_POST['jumlah'];
 $alamat = $_POST['alamat'];
 
 switch ($barang) {
-    case 'tv':
+    case 'TV':
         $harga = $jumlah * 4_200_000;
         break;
-    case 'kulkas':
+    case 'Kulkas':
         $harga = $jumlah * 3_500_000;
         break;
-    case 'mesincuci':
+    case 'Mesin Cuci':
         $harga = $jumlah * 3_800_000;
         break;
-    case 'lemari':
+    case 'Lemari':
         $harga = $jumlah * 700_000;
         break;
-    case 'jamtangan':
+    case 'Jam Tangan':
         $harga = $jumlah * 120_000;
         break;
-    case 'tas':
+    case 'Tas':
         $harga = $jumlah * 150_000;
         break;
 }
