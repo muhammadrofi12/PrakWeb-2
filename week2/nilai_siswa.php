@@ -3,14 +3,15 @@
 // Panggil function di file yang berbeda
 require_once 'function.php';
 
-$nama = $_POST['name'];
-$mata_kuliah = $_POST['matkul'];
-$uts = $_POST['nilai_uts'];
-$uas = $_POST['nilai_uas'];
-$nilai_tugas = $_POST['nilai_tugas'];
-$_nilai = ($uts + $uas + $nilai_tugas)/3;
-$ket = kelulusan($_nilai);
-$grade = grade($_nilai);
+$nama = isset($_POST['name']) ? $_POST['name'] : "";
+$mata_kuliah = isset($_POST['matkul']) ? $_POST['matkul'] : "";
+$uts = isset($_POST['nilai_uts']) ? $_POST['nilai_uts'] : "";
+$uas = isset($_POST['nilai_uas']) ? $_POST['nilai_uas'] : "";
+$nilai_tugas = isset($_POST['nilai_tugas']) ? $_POST['nilai_tugas'] : "";
+$_nilai = isset($_POST['nilai_uts']) && isset($_POST['nilai_uas']) ? ($uts + $uas + $nilai_tugas)/3 : "";
+$ket = $_nilai != "" ? kelulusan($_nilai) : "";
+$grade = $_nilai != "" ? grade($_nilai) : "";
+
 
 // Mencetak nilai variabel
 echo "Nama Mahasiswa : $nama";
