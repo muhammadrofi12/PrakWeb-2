@@ -6,7 +6,7 @@ require_once 'dbkoneksi.php';
 $_idedit = $_GET['idedit'];
 if (!empty($_idedit)) {
     // edit
-    $sql = "SELECT * FROM produk WHERE id=?";
+    $sql = "SELECT * FROM pelanggan WHERE id=?";
     $st = $dbh->prepare($sql);
     $st->execute([$_idedit]);
     $row = $st->fetch();
