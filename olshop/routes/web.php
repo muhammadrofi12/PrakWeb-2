@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FormInputController;
+use App\Http\Controllers\InputController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,3 +40,9 @@ Route::get('/about_nf', function () {
 Route::get('/form_medis', function () {
     return view('form_medis');
 });
+
+Route::get('/input', [InputController::class, 'index']);
+Route::post('/output', [InputController::class, 'output']);
+
+Route::get('/form_mahasiswa', [FormInputController::class, 'index']);
+Route::post('/hasil', [FormInputController::class, 'data']);
