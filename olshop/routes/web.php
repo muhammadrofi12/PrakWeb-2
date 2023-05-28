@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\FormInputController;
 use App\Http\Controllers\InputController;
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,3 +49,17 @@ Route::post('/output', [InputController::class, 'output']);
 
 Route::get('/form_mahasiswa', [FormInputController::class, 'index']);
 Route::post('/hasil', [FormInputController::class, 'data']);
+
+
+// ini route tampilan admin backend
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/produk', [ProdukController::class, 'index']);
+});
+
+
+// ini route tampilan frontend
+Route::prefix('user')->group(function () {
+    Route::get('/dashboard', [DashboardUserController::class, 'index']);
+    Route::get('/about', [DashboardUserController::class, 'about']);
+});
