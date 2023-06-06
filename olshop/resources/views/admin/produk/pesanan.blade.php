@@ -3,16 +3,16 @@
 @section('content')
     {{-- ini halaman produk --}}
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Table Produk</h1>
+        <h1 class="mt-4">Table Pesanan</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-            <li class="breadcrumb-item active">Tables</li>
+            <li class="breadcrumb-item active">Pesanan Customer</li>
         </ol>
 
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Tabel Produk
+                Tabel Pesanan
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
@@ -20,14 +20,14 @@
                         <tr>
 
                             <th>No</th>
-                            <th>Kode</th>
-                            <th>Nama</th>
-                            <th>Harga Jual</th>
-                            <th>Harga Beli</th>
-                            <th>Stok</th>
-                            <th>Minimal Stok</th>
+                            <th>Tanggal</th>
+                            <th>Customer</th>
+                            <th>Alamat</th>
+                            <th>No Telp</th>
+                            <th>Email</th>
+                            <th>Jumlah Pesanan</th>
                             <th>Deskripsi</th>
-                            <th>Kategori Produk</th>
+                            <th>Produk</th>
 
                         </tr>
                     </thead>
@@ -36,18 +36,18 @@
                             $no = 1;
                         @endphp
 
-                        @foreach ($produk as $p)
+                        @foreach ($pesanan as $pesanan)
                             <tr>
 
                                 <td>{{ $no }}</td>
-                                <td>{{ $p->kode }}</td>
-                                <td>{{ $p->nama }}</td>
-                                <td>{{ $p->harga_jual }}</td>
-                                <td>{{ $p->harga_beli }}</td>
-                                <td>{{ $p->stok }}</td>
-                                <td>{{ $p->min_stok }}</td>
-                                <td>{{ $p->deskripsi }}</td>
-                                <td>{{ $p->nama_kategori }}</td>
+                                <td>{{ $pesanan->tanggal }}</td>
+                                <td>{{ $pesanan->nama_pemesan }}</td>
+                                <td>{{ $pesanan->alamat_pemesan }}</td>
+                                <td>{{ $pesanan->no_hp }}</td>
+                                <td>{{ $pesanan->email }}</td>
+                                <td>{{ $pesanan->jumlah_pesanan }}</td>
+                                <td>{{ $pesanan->deskripsi }}</td>
+                                <td>{{ $pesanan->nama_produk }}</td>
 
                             </tr>
 
