@@ -11,6 +11,7 @@ class Produk extends Model
     use HasFactory;
     protected $table = 'produk';
 
+    public $timestamps = false;
     protected $primaryKey = 'id';
 
     protected $fillable = [

@@ -14,6 +14,11 @@
                 <i class="fas fa-table me-1"></i>
                 Tabel Kategori Produk
             </div>
+
+            <div class="card-header">
+                <a href="{{ url('admin/kategoriProduk/create') }}" class="btn btn-primary">Tambah Data</a>
+            </div>
+
             <div class="card-body">
                 <table id="datatablesSimple">
                     <thead>
@@ -21,6 +26,7 @@
 
                             <th>No</th>
                             <th>Nama</th>
+                            <th>Action</th>
 
                         </tr>
                     </thead>
@@ -34,6 +40,12 @@
 
                                 <td>{{ $no }}</td>
                                 <td>{{ $kategori->nama }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{{ url('admin/kategoriProduk/edit/'. $kategori->id) }}" class="btn btn-success">Edit</a>
+                                        <a href="{{ url('admin/kategoriProduk/delete/'. $kategori->id) }}" class="btn btn-danger ms-2">Delete</a>
+                                    </div>
+                                </td>
 
                             </tr>
 

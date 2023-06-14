@@ -11,11 +11,15 @@
 
         <div class="card mb-4">
             <div class="card-header">
+                <a href="{{ url('admin/produk/create') }}" class="btn btn-primary">Tambah Produk</a>
+            </div>
+
+            <div class="card-header">
                 <i class="fas fa-table me-1"></i>
                 Tabel Produk
             </div>
             <div class="card-body">
-                <table id="datatablesSimple">
+                <table id="datatablesSimple" class="table-responsive">
                     <thead>
                         <tr>
 
@@ -28,6 +32,7 @@
                             <th>Minimal Stok</th>
                             <th>Deskripsi</th>
                             <th>Kategori Produk</th>
+                            <th colspan="2">Action</th>
 
                         </tr>
                     </thead>
@@ -48,6 +53,14 @@
                                 <td>{{ $p->min_stok }}</td>
                                 <td>{{ $p->deskripsi }}</td>
                                 <td>{{ $p->nama_kategori }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{{ url('admin/produk/edit/' . $p->id) }}" class="btn btn-success">Edit</a>
+                                        <a href="{{ url('admin/produk/delete/' . $p->id) }}"
+                                            class="btn btn-danger ms-2">Delete</a>
+                                    </div>
+                                </td>
+
 
                             </tr>
 

@@ -14,6 +14,11 @@
                 <i class="fas fa-table me-1"></i>
                 Tabel Pesanan
             </div>
+
+            <div class="card-header">
+                <a href="{{ url('admin/pesanan/create') }}" class="btn btn-primary">Tambah Data</a>
+            </div>
+
             <div class="card-body">
                 <table id="datatablesSimple">
                     <thead>
@@ -28,6 +33,7 @@
                             <th>Jumlah Pesanan</th>
                             <th>Deskripsi</th>
                             <th>Produk</th>
+                            <th>Action</th>
 
                         </tr>
                     </thead>
@@ -48,6 +54,12 @@
                                 <td>{{ $pesanan->jumlah_pesanan }}</td>
                                 <td>{{ $pesanan->deskripsi }}</td>
                                 <td>{{ $pesanan->nama_produk }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{{ url('admin/pesanan/edit/'. $pesanan->id) }}" class="btn btn-success">Edit</a>
+                                        <a href="{{ url('admin/pesanan/delete/'. $pesanan->id) }}" class="btn btn-danger ms-2">Delete</a>
+                                    </div>
+                                </td>
 
                             </tr>
 
