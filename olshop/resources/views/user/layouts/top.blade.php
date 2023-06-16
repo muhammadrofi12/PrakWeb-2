@@ -37,6 +37,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{ url('user/about') }}">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Landing Page</a></li>
                     </ul>
                 </div>
             </div>

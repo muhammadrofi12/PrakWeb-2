@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\FormInputController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProdukController;
 use App\Models\KategoriProduk;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,14 +23,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/salam', function () {
-    return "Hallo, selamat datang.";
-});
-
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 Route::get('/about', function () {
     return view('about', [
@@ -53,10 +52,13 @@ Route::post('/output', [InputController::class, 'output']);
 Route::get('/form_mahasiswa', [FormInputController::class, 'index']);
 Route::post('/hasil', [FormInputController::class, 'data']);
 
-
+// untuk security agar harus melalui proses login/register terlebih dahulu
+// dengan middleware('auth)
 // ini route tampilan admin backend
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/logout', [DashboardController::class, 'logout']);
+
     Route::get('/produk', [ProdukController::class, 'index']);
     Route::get('/produk/create', [ProdukController::class, 'create']);
     Route::post('/produk/store', [ProdukController::class, 'store']);
@@ -85,3 +87,7 @@ Route::prefix('user')->group(function () {
     Route::get('/dashboard', [DashboardUserController::class, 'index']);
     Route::get('/about', [DashboardUserController::class, 'about']);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
