@@ -55,30 +55,33 @@ Route::post('/hasil', [FormInputController::class, 'data']);
 // untuk security agar harus melalui proses login/register terlebih dahulu
 // dengan middleware('auth)
 // ini route tampilan admin backend
-Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::get('/logout', [DashboardController::class, 'logout']);
+Route::group(['middleware' => ['auth', 'peran:admin-manager']], function() {
+    Route::prefix('admin')->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index']);
+        Route::get('/logout', [DashboardController::class, 'logout']);
 
-    Route::get('/produk', [ProdukController::class, 'index']);
-    Route::get('/produk/create', [ProdukController::class, 'create']);
-    Route::post('/produk/store', [ProdukController::class, 'store']);
-    Route::get('/produk/edit/{id}', [ProdukController::class, 'edit']);
-    Route::post('/produk/update/{id}', [ProdukController::class, 'update']);
-    Route::get('/produk/delete/{id}', [ProdukController::class, 'destroy']);
+        Route::get('/produk', [ProdukController::class, 'index']);
+        Route::get('/produk/create', [ProdukController::class, 'create']);
+        Route::post('/produk/store', [ProdukController::class, 'store']);
+        Route::get('/produk/edit/{id}', [ProdukController::class, 'edit']);
+        Route::post('/produk/update/{id}', [ProdukController::class, 'update']);
+        Route::get('/produk/delete/{id}', [ProdukController::class, 'destroy']);
 
-    Route::get('/kategoriProduk', [KategoriProdukController::class, 'index']);
-    Route::get('/kategoriProduk/create', [KategoriProdukController::class, 'create']);
-    Route::post('/kategoriProduk/store', [KategoriProdukController::class, 'store']);
-    Route::get('/kategoriProduk/edit/{id}', [KategoriProdukController::class, 'edit']);
-    Route::post('/kategoriProduk/update/{id}', [KategoriProdukController::class, 'update']);
-    Route::get('/kategoriProduk/delete/{id}', [KategoriProdukController::class, 'destroy']);
+        Route::get('/kategoriProduk', [KategoriProdukController::class, 'index']);
+        Route::get('/kategoriProduk/create', [KategoriProdukController::class, 'create']);
+        Route::post('/kategoriProduk/store', [KategoriProdukController::class, 'store']);
+        Route::get('/kategoriProduk/edit/{id}', [KategoriProdukController::class, 'edit']);
+        Route::post('/kategoriProduk/update/{id}', [KategoriProdukController::class, 'update']);
+        Route::get('/kategoriProduk/delete/{id}', [KategoriProdukController::class, 'destroy']);
 
-    Route::get('/pesanan', [PesananController::class, 'index']);
-    Route::get('/pesanan/create', [PesananController::class, 'create']);
-    Route::post('/pesanan/store', [PesananController::class, 'store']);
-    Route::get('/pesanan/edit/{id}', [PesananController::class, 'edit']);
-    Route::post('/pesanan/update/{id}', [PesananController::class, 'update']);
-    Route::get('/pesanan/delete/{id}', [PesananController::class, 'destroy']);
+        Route::get('/pesanan', [PesananController::class, 'index']);
+        Route::get('/pesanan/create', [PesananController::class, 'create']);
+        Route::post('/pesanan/store', [PesananController::class, 'store']);
+        Route::get('/pesanan/edit/{id}', [PesananController::class, 'edit']);
+        Route::post('/pesanan/update/{id}', [PesananController::class, 'update']);
+        Route::get('/pesanan/delete/{id}', [PesananController::class, 'destroy']);
+    });
+
 });
 
 
@@ -86,6 +89,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 Route::prefix('user')->group(function () {
     Route::get('/dashboard', [DashboardUserController::class, 'index']);
     Route::get('/about', [DashboardUserController::class, 'about']);
+});
+
+Route::get('/frontend', function () {
+    return view('frontend');
 });
 
 Auth::routes();
